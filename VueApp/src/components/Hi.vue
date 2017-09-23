@@ -16,11 +16,17 @@
         </span>
       </li>
     </ul>
+    <test></test>
   </div>
+
 </template>
 
 <script>
+import Test from './Test'
 export default {
+  components: {
+    Test
+  },
   name: 'hi',
   data () {
     return {
@@ -45,7 +51,10 @@ export default {
   created: function() {
     this.$http.get('https://jsonplaceholder.typicode.com/users')
       .then(function (res) {
-        this.users = res.data;
+        let data = res.data;
+        console.log(data)
+        data.map(dat => dat['contacted'] = false);
+        this.users = data;
       })
   }
 }
