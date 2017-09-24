@@ -41,16 +41,6 @@
         this.$store.dispatch('updateMovie', {title: this.propTitle, date: this.propDate, desc: this.propDesc, id: this.movieId});
       }
     }
-    // ,
-    // computed: {
-    //   elemData: function() {
-    //     let newTitle = this.title
-    //     let newDate = this.date
-    //     let newDesc = this.desc
-    //     this.elementData = [newTitle, newDate, newDesc]
-    //   return this.elementData
-    //   }
-    // }
   }
 </script>
 

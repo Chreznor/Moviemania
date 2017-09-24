@@ -4,13 +4,8 @@
       <md-layout  md-flex="80" class="border" md-align="center">
         <md-layout class="edit-container">
           <edit-element :title="getMovie[0].title" :desc="getMovie[0].overview" :date="getMovie[0].release_date" :img="getMovie[0].backdrop_path" :movieId="getMovie[0].id"></edit-element>
-          <md-button v-on:click="changeTitle">Save Edit</md-button>
         </md-layout>
       </md-layout>
-      {{this.$store.state.movies[0].title}}
-      {{this.$store.state.count}}
-      {{this.$route.params.movieId}}
-      {{getMovie[0].title}}
   </md-layout>
 
 </template>
@@ -27,11 +22,6 @@
     data () {
       return {
         movies: [],
-      }
-    },
-    methods: {
-      changeTitle: function () {
-        this.$store.dispatch('changeTitle', this.getMovie[0].title);
       }
     },
     computed: {
@@ -54,8 +44,6 @@
     text-decoration: none;
     color: white;
   }
-
-
 
   /*.border {
     border-left: 1px solid black;

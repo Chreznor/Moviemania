@@ -13,16 +13,16 @@
 
         <md-menu-content>
           <md-menu-item @selected="$router.push({ path: 'edit-page/' + movieId })">
-            <!-- <md-menu-item @selected="$router.push({ name: 'Account' })">Account</md-menu-item> -->
             <span>Edit Info</span>
-            <md-icon>edit</md-icon>
+            <md-icon class="md-primary">edit</md-icon>
           </md-menu-item>
 
           <md-menu-item :href="'http://www.themoviedb.org/movie/' + movieId">
             <span>View on MovieDB</span>
-            <md-icon>info</md-icon>
+            <md-icon class="md-primary">info</md-icon>
           </md-menu-item>
         </md-menu-content>
+
       </md-menu>
     </md-card-header>
 

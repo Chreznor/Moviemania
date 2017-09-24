@@ -1,6 +1,5 @@
 <template>
   <md-layout md-align="center">
-    {{this.$store.state.movies[0].title}}
       <md-layout  md-flex="80" class="border" md-align="center">
         <md-layout>
           <ul>
@@ -28,22 +27,6 @@
         items: [1, 2, 3, 4, 5, 6, 7, 8, 9]
       }
     }
-    // ,
-    // mounted() {    axios.get('https://api.themoviedb.org/3/discover/movie?api_key=d85a4cb9cc02218651b1548b20f1fb7d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1')
-    //         .then(res => this.$store.dispatch('loadMovies', res.data.results))
-    //         .catch(e => {
-    //         console.log(e);
-    //       })
-    //     }
-  //   function() {
-  //   axios.get('https://api.themoviedb.org/3/discover/movie?api_key=d85a4cb9cc02218651b1548b20f1fb7d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1')
-  //     .then(res => this.movies = res.data.results)
-  //     .catch(e => {
-  //     console.log(e);
-  //   })
-  //
-  // },
-
   }
 </script>
 
@@ -57,14 +40,6 @@
     text-decoration: none;
     color: white;
   }
-
-
-
-  /*.border {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-  }*/
-
   .md-title {
     font-size: 32px;
   }

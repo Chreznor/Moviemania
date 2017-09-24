@@ -20,7 +20,6 @@ Vue.material.registerTheme('default', {
 const store = new Vuex.Store({
   state: {
     movies: [],
-    count: 0
   },
   mutations: {
     loadMovies (state, data) {
@@ -37,14 +36,6 @@ const store = new Vuex.Store({
         return
       })
 
-    },
-    changeTitle (state, title) {
-      state.movies.map(movie => {
-        if(movie.title === title) {
-          movie.title = "The Last Wish of the Forgotten"
-        }
-        return
-      })
     }
   },
   actions: {
@@ -53,9 +44,6 @@ const store = new Vuex.Store({
     },
     updateMovie ({commit}, data) {
       commit('updateMovie', data)
-    },
-    changeTitle ({commit}, title) {
-      commit('changeTitle', title)
     }
   }
 })
