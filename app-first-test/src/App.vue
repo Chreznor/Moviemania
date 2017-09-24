@@ -11,7 +11,14 @@ export default {
   components: {
     Layout
   },
-  name: 'app'
+  name: 'app',
+  mounted() {
+    axios.get('https://api.themoviedb.org/3/discover/movie?api_key=d85a4cb9cc02218651b1548b20f1fb7d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1')
+      .then(res => this.$store.dispatch('loadMovies', res.data.results))
+      .catch(e => {
+        console.log(e);
+    })
+  }
 }
 </script>
 

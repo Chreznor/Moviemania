@@ -14,7 +14,7 @@ export default new Router({
       component: Maincontainer
     },
     {
-      path: '/edit-page',
+      path: '/edit-page/:movieId',
       name: 'edit-page',
       component: EditPage
     }

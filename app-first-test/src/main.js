@@ -26,16 +26,36 @@ const store = new Vuex.Store({
     loadMovies (state, data) {
       state.movies = data
     },
-    increment (state) {
-      state.count++
+    updateMovie (state, data) {
+      let info = {...data}
+      state.movies.map(movie => {
+        if (movie.id === info.id) {
+          movie.title = info.title
+          movie.release_date = info.date
+          movie.overview = info.desc
+        }
+        return
+      })
+
+    },
+    changeTitle (state, title) {
+      state.movies.map(movie => {
+        if(movie.title === title) {
+          movie.title = "The Last Wish of the Forgotten"
+        }
+        return
+      })
     }
   },
   actions: {
     loadMovies ({commit}, data) {
       commit('loadMovies', data)
     },
-    increment ({commit}) {
-      commit('increment')
+    updateMovie ({commit}, data) {
+      commit('updateMovie', data)
+    },
+    changeTitle ({commit}, title) {
+      commit('changeTitle', title)
     }
   }
 })

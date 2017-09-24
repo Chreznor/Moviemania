@@ -7,12 +7,12 @@
       </md-card-header-text>
 
       <md-menu md-size="4" md-direction="bottom left">
-        <md-button class="md-icon-button" md-menu-trigger>
+        <md-button class="md-icon-button md-primary" md-menu-trigger>
           <md-icon>more_vert</md-icon>
         </md-button>
 
         <md-menu-content>
-          <md-menu-item @selected="$router.push({ name: 'edit-page' })">
+          <md-menu-item @selected="$router.push({ path: 'edit-page/' + movieId })">
             <!-- <md-menu-item @selected="$router.push({ name: 'Account' })">Account</md-menu-item> -->
             <span>Edit Info</span>
             <md-icon>edit</md-icon>

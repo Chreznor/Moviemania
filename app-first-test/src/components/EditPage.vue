@@ -1,51 +1,47 @@
 <template>
 
-  <md-layout md-align="center">
-    {{this.$store.state.count}}
-    <md-button v-on:click="incr">adsaddsd</md-button>
+  <md-layout md-align="center" md-column>
       <md-layout  md-flex="80" class="border" md-align="center">
-        <md-layout>
-          <ul>
-            <li md-flex v-for="movie in movies">
-              <h1>Hello</h1>
-            </li>
-          </ul>
+        <md-layout class="edit-container">
+          <edit-element :title="getMovie[0].title" :desc="getMovie[0].overview" :date="getMovie[0].release_date" :img="getMovie[0].backdrop_path" :movieId="getMovie[0].id"></edit-element>
+          <md-button v-on:click="changeTitle">Save Edit</md-button>
         </md-layout>
       </md-layout>
+      {{this.$store.state.movies[0].title}}
+      {{this.$store.state.count}}
+      {{this.$route.params.movieId}}
+      {{getMovie[0].title}}
   </md-layout>
 
 </template>
 
 <script>
-  import ListElement from './ListElement'
+  import EditElement from './EditElement'
   import axios from 'axios';
   export default {
     components: {
-      ListElement
+      EditElement
     },
-    name: 'main-container',
+    name: 'edit-page',
     props: [],
     data () {
       return {
         movies: [],
-        items: [1, 2, 3, 4, 5, 6, 7, 8, 9]
       }
     },
     methods: {
-      incr: function () {
-        this.$store.dispatch('increment');
+      changeTitle: function () {
+        this.$store.dispatch('changeTitle', this.getMovie[0].title);
       }
     },
-    created: function() {
-    axios.get('https://api.themoviedb.org/3/discover/movie?api_key=d85a4cb9cc02218651b1548b20f1fb7d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1')
-      .then(res => this.movies = res.data.results)
-      .catch(e => {
-      console.log(e);
-    })
+    computed: {
+      getMovie () {
+        return this.$store.state.movies.filter(movie => movie.id === parseFloat(this.$route.params.movieId))
+      }
+    }
 
   }
 
-  }
 </script>
 
 <style scoped>
@@ -68,6 +64,10 @@
 
   .md-title {
     font-size: 32px;
+  }
+
+  .edit-container {
+    max-width: 400px;
   }
 
   ul:not(.md-list) > li + li {
