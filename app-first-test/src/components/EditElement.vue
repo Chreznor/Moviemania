@@ -20,7 +20,19 @@
       <label>Overview</label>
       <md-textarea v-model="propDesc"></md-textarea>
     </md-input-container>
-    <md-button class="md-raised md-primary" @click="updateMovie">Save Edit</md-button>
+
+    <md-dialog md-open-from="#custom" md-close-to="#custom" ref="save-movie">
+      <md-dialog-title>The Edit Has Been Saved</md-dialog-title>
+
+      <md-dialog-content>Return to the home page?</md-dialog-content>
+
+      <md-dialog-actions>
+        <md-button class="md-primary" @click="closeDialog('save-movie')">Cancel</md-button>
+        <md-button class="md-primary" href="#/">Ok</md-button>
+      </md-dialog-actions>
+    </md-dialog>
+
+    <md-button class="md-raised md-primary" id="custom" @click="updateMovie('save-movie')">Save Edit</md-button>
   </md-card>
 </template>
 
@@ -36,9 +48,12 @@
       }
     },
     methods: {
-      updateMovie: function() {
-        console.log(this.movieId, this.propTitle)
+      updateMovie(ref) {
+        this.$refs[ref].open();
         this.$store.dispatch('updateMovie', {title: this.propTitle, date: this.propDate, desc: this.propDesc, id: this.movieId});
+      },
+      closeDialog(ref) {
+        this.$refs[ref].close();
       }
     }
   }

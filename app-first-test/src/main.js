@@ -35,7 +35,6 @@ const store = new Vuex.Store({
         }
         return
       })
-
     }
   },
   actions: {

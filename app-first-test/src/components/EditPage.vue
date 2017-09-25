@@ -45,35 +45,12 @@
     color: white;
   }
 
-  /*.border {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-  }*/
-
   .md-title {
     font-size: 32px;
   }
 
   .edit-container {
     max-width: 400px;
-  }
-
-  ul:not(.md-list) > li + li {
-    margin: 0 0 20px 0;
-  }
-
-
-  ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      padding: 0;
-  }
-
-  li {
-    list-style: none;
-    flex-basis: 29%;
-    margin-bottom: 20px;
   }
 
 </style>

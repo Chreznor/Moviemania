@@ -13,7 +13,6 @@
       return {}
     },
     props: [],
-
   }
 </script>
 
@@ -27,7 +26,6 @@
     text-decoration: none;
     color: white;
   }
-
 
   .md-title {
     font-size: 48px;

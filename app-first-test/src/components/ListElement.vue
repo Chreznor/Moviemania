@@ -1,6 +1,7 @@
 <template>
   <md-card md-with-hover>
     <md-card-header>
+
       <md-card-header-text>
         <div class="md-title">{{title}}</div>
         <div class="md-subhead">{{date}}</div>
@@ -22,8 +23,8 @@
             <md-icon class="md-primary">info</md-icon>
           </md-menu-item>
         </md-menu-content>
-
       </md-menu>
+
     </md-card-header>
 
     <md-card-media md-ratio="4:3">
@@ -31,7 +32,7 @@
     </md-card-media>
 
     <md-card-content>
-      {{desc.substring(0, 150) + '...'}}
+      {{desc.length > 150 ? desc.substring(0, 150) + '...'  : desc}}
     </md-card-content>
   </md-card>
 
@@ -75,4 +76,5 @@
     height: 30px;
     font-size: 20px;
   }
+
 </style>

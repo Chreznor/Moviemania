@@ -3,7 +3,7 @@
       <md-layout  md-flex="80" class="border" md-align="center">
         <md-layout>
           <ul>
-            <li md-flex v-for="movie in this.$store.state.movies">
+            <li v-for="movie in this.$store.state.movies">
               <list-element :title="movie.title" :desc="movie.overview" :date="movie.release_date" :img="movie.backdrop_path" :movieId="movie.id"></list-element>
             </li>
           </ul>
@@ -15,7 +15,6 @@
 
 <script>
   import ListElement from './ListElement'
-  import axios from 'axios';
   export default {
     components: {
       ListElement
@@ -24,7 +23,6 @@
     props: [],
     data () {
       return {
-        items: [1, 2, 3, 4, 5, 6, 7, 8, 9]
       }
     }
   }
@@ -61,5 +59,20 @@
     flex-basis: 29%;
     margin-bottom: 20px;
   }
+
+  @media (max-width: 900px) {
+      li {
+      flex-basis: 40%;
+      margin-bottom: 40px;
+    }
+  }
+
+  @media (max-width: 600px) {
+      li {
+      flex-basis: 70%;
+      margin-bottom: 40px;
+    }
+  }
+
 
 </style>
